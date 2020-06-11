@@ -1,0 +1,17 @@
+//CALLBACK EN FOREACH
+const ciudades = ['Londres, NY', 'Madrid', 'Paris'];
+
+//INICIALIZANDO CALLBACK
+
+ciudades.forEach(function(ciudad){
+    console.log(ciudad);
+})
+
+
+/*
+//CON FUNCION DEF(INIDA
+function callback(ciudad){
+    console.log(ciudad);
+}
+ciudades.forEach(callback);
+*/
