@@ -1,5 +1,6 @@
 document.getElementById('txtBtn').addEventListener('click', cargarTXT);
 document.getElementById('jsonBtn').addEventListener('click', cargarJSON);
+document.getElementById('apiBTN').addEventListener('click', cargarREST);
 
 
 function cargarTXT(){
@@ -34,4 +35,25 @@ function cargarJSON(){
         .catch(function(error){
             console.log(error);
         });
+}
+
+function cargarREST(){
+    fetch('https://picsum.photos/list')
+        .then(function(res){
+            return res.json();
+
+        })
+        .then(function(imagenes){
+           // console.log(imagenes);
+           let html = '';
+           imagenes.forEach(function(imagen){
+               html += `
+                    <li>                       
+                        ${imagen.author}
+                        <a target="_blank" href="${imagen.post_url}">Ver imagen </a>
+                    </li>
+                    `;
+           });
+           document.getElementById('resultado').innerHTML = html;
+        })
 }
