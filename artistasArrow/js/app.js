@@ -14,29 +14,24 @@ function cargarNombres(e){
 
  
         
-  //CREAR FETCH
+  //CREAR ARROW
     fetch(url)
-        .then(function(res){
-            return res.json();
-
-        })
-        .then(function(artistas){
+        .then(res => res.json())
+        .then(artistas => {
             //console.log(artistas);
             let htmlNombres = '<h2>Top de Artistas</h2>';           
             htmlNombres += '<ul class="lista">';
 
-            artistas.topartists.artist.forEach(function(artista){
+            artistas.topartists.artist.forEach(artista => {
                     htmlNombres += `
-                          <li><a href='${artista.url}' target ="_blank">${artista.name}</a></li>
+                        <li><a href='${artista.url}' target ="_blank">${artista.name}</a></li>
                     `;
                 })
 
             htmlNombres += `</ul>`;
             document.querySelector('#resultado').innerHTML = htmlNombres;
     })
-    .catch(function(error){
-        console.log(error);
-    })
+    .catch(error => console.log(error))
 
 }
-     
+       
